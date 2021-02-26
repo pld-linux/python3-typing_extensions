@@ -8,7 +8,7 @@ Summary:	Backported and Experimental Type Hints for Python 3.5+
 Summary(pl.UTF-8):	Backportowane i eksperymentalne podpowiedzi typów dla Pythona 3.5+
 Name:		python-typing_extensions
 Version:	3.7.4.3
-Release:	1
+Release:	2
 License:	PSF
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/typing-extensions/
