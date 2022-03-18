@@ -7,6 +7,7 @@
 Summary:	Backported and Experimental Type Hints for Python 3.5+
 Summary(pl.UTF-8):	Backportowane i eksperymentalne podpowiedzi typów dla Pythona 3.5+
 Name:		python-typing_extensions
+# keep 3.x here for python2 support
 Version:	3.10.0.2
 Release:	1
 License:	PSF
@@ -26,7 +27,7 @@ BuildRequires:	python-typing >= 3.7.4
 BuildRequires:	python3-modules >= 1:3.4
 BuildRequires:	python3-setuptools
 %if %{with tests}
-%if "%{py3_ver}" < "3.4"
+%if "%{py3_ver}" < "3.5"
 BuildRequires:	python3-typing >= 3.7.4
 %endif
 %endif
