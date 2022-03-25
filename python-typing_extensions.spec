@@ -9,7 +9,7 @@ Summary(pl.UTF-8):	Backportowane i eksperymentalne podpowiedzi typów dla Python
 Name:		python-typing_extensions
 # keep 3.x here for python2 support
 Version:	3.10.0.2
-Release:	1
+Release:	2
 License:	PSF
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/typing-extensions/
