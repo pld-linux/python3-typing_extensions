@@ -27,7 +27,7 @@ BuildRequires:	python-typing >= 3.7.4
 BuildRequires:	python3-modules >= 1:3.4
 BuildRequires:	python3-setuptools
 %if %{with tests}
-%if "%{py3_ver}" < "3.5"
+%if "%{py3_ver}" == "3.4"
 BuildRequires:	python3-typing >= 3.7.4
 %endif
 %endif
