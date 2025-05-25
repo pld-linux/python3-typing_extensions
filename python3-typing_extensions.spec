@@ -54,6 +54,7 @@ EOF
 %py3_build
 
 %if %{with tests}
+PYTHONPATH=$(pwd)/src \
 %{__python3} -m unittest discover -s src
 %endif
 
