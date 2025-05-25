@@ -13,13 +13,14 @@ Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/t/typing-extensions/typing_extensions-%{version}.tar.gz
 # Source0-md5:	cf64c2313f5fa5eb04c1deb3fc93abe9
 URL:		https://pypi.org/project/typing-extensions/
-BuildRequires:	python3-modules >= 1:3.7
-BuildRequires:	python3-setuptools >= 1:61
-%if %{with tests}
-%endif
+BuildRequires:	python3-build
+BuildRequires:	python3-flit_core >= 3.4
+BuildRequires:	python3-flit_core < 4
+BuildRequires:	python3-installer
+BuildRequires:	python3-modules >= 1:3.8
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.714
-Requires:	python3-modules >= 1:3.7
+BuildRequires:	rpmbuild(macros) >= 2.044
+Requires:	python3-modules >= 1:3.8
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -44,14 +45,8 @@ Moduł typing_extensions służy dwóm celom:
 %prep
 %setup -q -n typing_extensions-%{version}
 
-# stub to build using setuptools instead of flit.core
-cat >setup.py <<EOF
-from setuptools import setup
-setup()
-EOF
-
 %build
-%py3_build
+%py3_build_pyproject
 
 %if %{with tests}
 PYTHONPATH=$(pwd)/src \
@@ -61,10 +56,7 @@ PYTHONPATH=$(pwd)/src \
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%py3_install
-
-%{__rm} $RPM_BUILD_ROOT%{py3_sitescriptdir}/{_typed_dict_test_helper,test_typing_extensions}.py
-%{__rm} $RPM_BUILD_ROOT%{py3_sitescriptdir}/__pycache__/{_typed_dict_test_helper,test_typing_extensions}.*
+%py3_install_pyproject
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -74,4 +66,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc CHANGELOG.md LICENSE README.md
 %{py3_sitescriptdir}/typing_extensions.py
 %{py3_sitescriptdir}/__pycache__/typing_extensions.cpython-*.py[co]
-%{py3_sitescriptdir}/typing_extensions-%{version}-py*.egg-info
+%{py3_sitescriptdir}/typing_extensions-%{version}.dist-info
