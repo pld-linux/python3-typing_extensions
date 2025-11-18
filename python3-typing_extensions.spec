@@ -5,13 +5,13 @@
 Summary:	Backported and Experimental Type Hints for Python 3.7+
 Summary(pl.UTF-8):	Backportowane i eksperymentalne podpowiedzi typów dla Pythona 3.7+
 Name:		python3-typing_extensions
-Version:	4.14.1
+Version:	4.15.0
 Release:	1
 License:	PSF
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/typing-extensions/
 Source0:	https://files.pythonhosted.org/packages/source/t/typing-extensions/typing_extensions-%{version}.tar.gz
-# Source0-md5:	da52c877660b1760771ce7553f729c5d
+# Source0-md5:	079e529d0b271647f3ec2720aee8fc65
 URL:		https://pypi.org/project/typing-extensions/
 BuildRequires:	python3-build
 BuildRequires:	python3-flit_core >= 3.11
